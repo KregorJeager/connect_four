@@ -1,9 +1,11 @@
 # frozen_string_literal: false
 
-describe 'Board' do
+require_relative '../lib/board'
+
+describe Board do
   describe '#initialize' do
+    subject(:board_init) { described_class.new }
     context 'When Board is initialized' do
-      subject(:board_init) { described_class.new }
       it 'Creates a 7 x 6 board' do
         expect(board_init.grid).to eq([[nil, nil, nil, nil, nil, nil, nil],
                                        [nil, nil, nil, nil, nil, nil, nil],
