@@ -1,0 +1,39 @@
+Connect four is a game where you Connect
+4 pieces in a 6 row 7 column vertical board.
+The pieces are dropped from the top so each new 
+pieces would have to placed on top of already 
+existing pieces. The 4 connected pieces can either 
+be diagonal, veritcal, or horizontal.
+
+the game needs to:
+
+get player one input
+verify it's a valid move on the board
+place the the move
+check the if there is a winnner
+end the game or 
+get player two move
+
+
+Class structure
+Game # runs game, change player turns, send msg to place move on board
+  Player_input # verifies it s valid input
+  Board # saves pieces position, checks for valid move, checks for winnner
+  Display # prints board and other element to make the game look clean
+  Menu # setup
+Game loop
+
+Game 
+  run menu to set up names and other setting
+  init board
+  run loop Play game
+    #default player is 1
+    print board
+    get player move
+    check if move valid
+    place move to board(player_number, move)
+    check winnner
+    if none reverse player turn
+end
+
+
