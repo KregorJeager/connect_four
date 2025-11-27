@@ -26,13 +26,27 @@ describe Board do
         y_coordinate = 3
         board_move.place_move(x_coordinate, y_coordinate, player_o)
         grid = board_move.grid
-
         expect(grid).to eq([[nil, nil, nil, nil, nil, nil, nil],
                             [nil, nil, nil, nil, nil, nil, nil],
                             [nil, nil, nil, nil, nil, nil, nil],
                             [nil, nil, nil, 'O', nil, nil, nil],
                             [nil, nil, nil, nil, nil, nil, nil],
                             [nil, nil, nil, nil, nil, nil, nil]])
+      end
+
+      it 'Place move in 2,5' do
+        player_o = 'O'
+        x_coordinate = 2
+        y_coordinate = 5
+        board_move.place_move(x_coordinate, y_coordinate, player_o)
+        grid = board_move.grid
+
+        expect(grid).to eq([[nil, nil, nil, nil, nil, nil, nil],
+                            [nil, nil, nil, nil, nil, nil, nil],
+                            [nil, nil, nil, nil, nil, nil, nil],
+                            [nil, nil, nil, nil, nil, nil, nil],
+                            [nil, nil, nil, nil, nil, nil, nil],
+                            [nil, nil, 'O', nil, nil, nil, nil]])
       end
     end
   end
