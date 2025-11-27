@@ -62,4 +62,19 @@ describe Board do
       end
     end
   end
+
+  describe '#player_won?' do
+    context 'When four pieces are aligned' do
+      xit 'Returns true when horizontally alligned' do
+        let(:grid) do
+          double([[nil, nil, nil, nil, nil, nil, nil],
+                  [nil, nil, nil, nil, nil, nil, nil],
+                  [nil, nil, nil, nil, nil, nil, nil],
+                  [nil, nil, nil, nil, nil, nil, nil],
+                  [nil, nil, nil, nil, nil, nil, nil],
+                  [nil, nil, 'O', nil, nil, nil, nil]])
+        end
+      end
+    end
+  end
 end
