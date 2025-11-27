@@ -8,6 +8,10 @@ class Board
     @grid = create_board
   end
 
+  def place_move(x_coordinate, y_coordinate, player)
+    @grid[y_coordinate][x_coordinate] = player
+  end
+
   private
 
   def create_board
