@@ -48,6 +48,18 @@ describe Board do
                             [nil, nil, nil, nil, nil, nil, nil],
                             [nil, nil, 'O', nil, nil, nil, nil]])
       end
+
+      context 'When a move is placed it saves the last move' do
+        it 'Update @last_move' do
+          player_o = 'O'
+          x_coordinate = 2
+          y_coordinate = 5
+          board_move.place_move(x_coordinate, y_coordinate, player_o)
+          last_move = board_move.instance_variable_get(:@last_move)
+          # the x,y is written as y,x so it is easier to use it on array[y][x]
+          expect(last_move).to eq([y_coordinate, x_coordinate])
+        end
+      end
     end
   end
 end
