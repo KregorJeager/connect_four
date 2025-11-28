@@ -83,7 +83,7 @@ describe Board do
                                                  [nil, 'O', nil, nil, nil, nil, nil],
                                                  [nil, 'O', nil, nil, nil, nil, nil],
                                                  [nil, nil, nil, nil, nil, nil, nil]])
-        expect(board_won.player_won?).to eq(true)
+        expect(board_won.player_won?('O')).to eq(true)
       end
     end
   end
