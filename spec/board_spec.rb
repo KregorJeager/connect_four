@@ -65,15 +65,15 @@ describe Board do
 
   describe '#player_won?' do
     context 'When four pieces are aligned' do
-      xit 'Returns true when horizontally alligned' do
-        let(:grid) do
-          double([[nil, nil, nil, nil, nil, nil, nil],
-                  [nil, nil, nil, nil, nil, nil, nil],
-                  [nil, nil, nil, nil, nil, nil, nil],
-                  [nil, nil, nil, nil, nil, nil, nil],
-                  [nil, nil, nil, nil, nil, nil, nil],
-                  [nil, nil, 'O', nil, nil, nil, nil]])
-        end
+      subject(:board_horizontal) { described_class.new }
+      it 'Returns true when horizontally alligned' do
+        board_horizontal.instance_variable_set(:@grid, [[nil, nil, nil, nil, nil, nil, nil],
+                                                        [nil, nil, nil, nil, nil, nil, nil],
+                                                        [nil, nil, nil, nil, nil, nil, nil],
+                                                        [nil, nil, nil, nil, nil, nil, nil],
+                                                        [nil, nil, nil, nil, nil, nil, nil],
+                                                        [nil, 'O', 'O', 'O', 'O', nil, nil]])
+        expect(board_horizontal.player_won?).to eq(true)
       end
     end
   end

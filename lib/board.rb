@@ -16,6 +16,13 @@ class Board
     @last_move = [y_coordinate, x_coordinate]
   end
 
+  def player_won?
+    grid.any?(['O', 'O', 'O', 'O', nil, nil, nil]) ||
+      grid.any?([nil, 'O', 'O', 'O', 'O', nil, nil]) ||
+      grid.any?([nil, nil, 'O', 'O', 'O', 'O', nil]) ||
+      grid.any?([nil, nil, nil, 'O', 'O', 'O', 'O'])
+  end
+
   private
 
   def create_board
