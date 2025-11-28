@@ -85,6 +85,26 @@ describe Board do
                                                  [nil, nil, nil, nil, nil, nil, nil]])
         expect(board_won.player_won?('O')).to eq(true)
       end
+
+      xit 'Returns true when diagonally aligned (upslope)' do
+        board_won.instance_variable_set(:@grid, [[nil, nil, nil, nil, nil, nil, nil],
+                                                 [nil, nil, nil, nil, 'O', nil, nil],
+                                                 [nil, nil, nil, 'O', nil, nil, nil],
+                                                 [nil, nil, 'O', nil, nil, nil, nil],
+                                                 [nil, 'O', nil, nil, nil, nil, nil],
+                                                 [nil, nil, nil, nil, nil, nil, nil]])
+        expect(board_won.player_won?('O')).to eq(true)
+      end
+
+      xit 'Returns true when diagonally aligned (downslope)' do
+        board_won.instance_variable_set(:@grid, [[nil, nil, nil, nil, nil, nil, nil],
+                                                 [nil, nil, 'O', nil, nil, nil, nil],
+                                                 [nil, nil, nil, 'O', nil, nil, nil],
+                                                 [nil, nil, nil, nil, 'O', nil, nil],
+                                                 [nil, nil, nil, nil, nil, 'O', nil],
+                                                 [nil, nil, nil, nil, nil, nil, nil]])
+        expect(board_won.player_won?('O')).to eq(true)
+      end
     end
   end
 end
