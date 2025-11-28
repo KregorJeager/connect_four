@@ -17,7 +17,7 @@ class Board
   end
 
   def player_won?(player)
-    horizontal_match(player)
+    horizontal_match(player) || vertical_match(player)
   end
 
   private
@@ -31,5 +31,17 @@ class Board
       grid.any?([nil, player, player, player, player, nil, nil]) ||
       grid.any?([nil, nil, player, player, player, player, nil]) ||
       grid.any?([nil, nil, nil, player, player, player, player])
+  end
+
+  def vertical_match(player)
+    streak = 0
+    (0..6).each do |i|
+      (0..5).each do |f|
+        streak += 1 if grid[f][i] == player
+        streak = 0 if grid[f][i] != player
+        return true if streak == 4
+      end
+    end
+    false
   end
 end
