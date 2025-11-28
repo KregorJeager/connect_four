@@ -17,15 +17,19 @@ class Board
   end
 
   def player_won?
-    grid.any?(['O', 'O', 'O', 'O', nil, nil, nil]) ||
-      grid.any?([nil, 'O', 'O', 'O', 'O', nil, nil]) ||
-      grid.any?([nil, nil, 'O', 'O', 'O', 'O', nil]) ||
-      grid.any?([nil, nil, nil, 'O', 'O', 'O', 'O'])
+    horizontal_match
   end
 
   private
 
   def create_board
     Array.new(6) { Array.new(7) }
+  end
+
+  def horizontal_match
+    grid.any?(['O', 'O', 'O', 'O', nil, nil, nil]) ||
+      grid.any?([nil, 'O', 'O', 'O', 'O', nil, nil]) ||
+      grid.any?([nil, nil, 'O', 'O', 'O', 'O', nil]) ||
+      grid.any?([nil, nil, nil, 'O', 'O', 'O', 'O'])
   end
 end
