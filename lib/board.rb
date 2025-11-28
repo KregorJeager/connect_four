@@ -16,8 +16,8 @@ class Board
     @last_move = [y_coordinate, x_coordinate]
   end
 
-  def player_won?
-    horizontal_match
+  def player_won?(player)
+    horizontal_match(player)
   end
 
   private
@@ -26,10 +26,10 @@ class Board
     Array.new(6) { Array.new(7) }
   end
 
-  def horizontal_match
-    grid.any?(['O', 'O', 'O', 'O', nil, nil, nil]) ||
-      grid.any?([nil, 'O', 'O', 'O', 'O', nil, nil]) ||
-      grid.any?([nil, nil, 'O', 'O', 'O', 'O', nil]) ||
-      grid.any?([nil, nil, nil, 'O', 'O', 'O', 'O'])
+  def horizontal_match(player)
+    grid.any?([player, player, player, player, nil, nil, nil]) ||
+      grid.any?([nil, player, player, player, player, nil, nil]) ||
+      grid.any?([nil, nil, player, player, player, player, nil]) ||
+      grid.any?([nil, nil, nil, player, player, player, player])
   end
 end

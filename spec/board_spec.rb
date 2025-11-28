@@ -73,7 +73,7 @@ describe Board do
                                                  [nil, nil, nil, nil, nil, nil, nil],
                                                  [nil, nil, nil, nil, nil, nil, nil],
                                                  [nil, 'O', 'O', 'O', 'O', nil, nil]])
-        expect(board_horizontal.player_won?).to eq(true)
+        expect(board_won.player_won?('O')).to eq(true)
       end
 
       it 'Returns true when vertically aligned' do
