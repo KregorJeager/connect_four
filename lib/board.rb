@@ -17,7 +17,7 @@ class Board
   end
 
   def player_won?(player)
-    horizontal_match(player) || vertical_match(player)
+    horizontal_match(player) || vertical_match(player) || diagonal_match(player)
   end
 
   private
@@ -41,6 +41,23 @@ class Board
         streak = 0 if grid[f][i] != player
         return true if streak == 4
       end
+    end
+    false
+  end
+
+  def diagonal_match(player)
+    streak = 0
+    slope = 1
+    2.times do
+      (0..6).each do |i|
+        (0..5).each do |f|
+          streak += 1 if @grid[f][i + f * slope] == player
+          streak = 0 if @grid[f][i + f * slope] != player
+          return true if streak == 4
+        end
+        streak = 0
+      end
+      slope = -1
     end
     false
   end
