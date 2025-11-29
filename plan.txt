@@ -36,4 +36,19 @@ Game
     if none reverse player turn
 end
 
+loop
+  board = board.new
+  continue_game = play(board)
+  return unless continue_game
+end
+
+play(board)
+  move = get_player_move(currect_player)
+  board.place_move(move,currect_player)
+  if Board.player_won?
+    anounce_result
+    return play_again?
+  player_turn
+end
+
 
